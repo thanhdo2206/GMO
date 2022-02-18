@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="container">
+        <form action="" id="myForm">
+            <div class="row">
+                <label for="fullName" class="col-6">Full name</label>
+                <input type="text" class="col-6" id="fullName" name="fullname" maxlength="50">
+
+                <span class="error_name helper_text"></span>
+            </div>
+
+            <div class="row">
+                <label for="" class="col-6">Email</label>
+                <input class="col-6" type="email" name="email" id="email" required>
+                <span class="error_email helper_text"></span>
+
+            </div>
+
+            <div class="row">
+                <label for="" class="col-6">Phone</label>
+                <input class="col-6" maxlength="12" type="text" name="phone" id="phone" placeholder="000-000-0000">
+                <span class="error_phone helper_text"></span>
+
+            </div>
+
+
+            <div class="row">
+                <label for="" class="col-6">Birthday</label>
+                <input class="col-6" type="text" name="birthday" id="birthDate" placeholder="dd/mm/YYYY">
+                <span class="error_birth helper_text"></span>
+
+            </div>
+
+            <div class="row">
+                <label for="" class="col-6">Password</label>
+                <input class="col-6" type="password" name="password" id="password">
+                <span class="error_pass helper_text"></span>
+                <i class="fa fa-eye eye_pass icon_eye"></i>
+                <i class="fa fa-eye-slash eye_noPass icon_eye"></i>
+
+            </div>
+
+
+            <div class="row">
+                <label for="" class="col-6">Confirm password</label>
+                <input type="password" class="col-6" name="comfirmPass" id="confirmPass">
+                <span class="error_confirm helper_text"></span>
+                <i class="fa fa-eye eye_pass icon_eye"></i>
+                <i class="fa fa-eye-slash eye_noPass icon_eye"></i>
+
+            </div>
+
+
+
+
+        </form>
+
+        <div class="img_upload">
+            <img src="" alt="" id="img_avatar--upload">
+            <input type="file" name="upload" id="upload_img">
+        </div>
+
+        <div class="btns">
+            <button class="btnAdd">Add</button>
+            <button class="btnReset">Reset</button>
+        </div>
+
+        <div class="info">
+
+            <ul class="info_personal">
+                <li>
+                    <span>Full Name :</span>
+                    <span class="text_info text_name"></span>
+                </li>
+
+                <li>
+                    <span>Email :</span>
+                    <span class="text_info"></span>
+                </li>
+
+                <li>
+                    <span>Phone :</span>
+                    <span class="text_info"></span>
+                </li>
+
+                <li>
+                    <span>Birthday :</span>
+                    <span class="text_info"></span>
+                </li>
+
+
+            </ul>
+
+
+            <div class="info_avatar">
+                <img src="" alt="">
+                <!-- ./anh_account.jpg -->
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="./main.js"></script>
+</body>
+
+
+
+
+</html>
