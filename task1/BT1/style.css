@@ -52,18 +52,20 @@ form{
 }
 
 .img_upload{
-    border: 1px solid #000;
-    border-radius:50%;
-    width: 150px;
-    height: 150px;
+    /* border: 1px solid #000; */
+    /* border-radius:50%; */
+    /* width: 150px;
+    height: 150px; */
     margin: 20px auto 70px auto;
-    /* margin-top:20px; */
     position: relative;
+    /* left: 50%;
+    transform: translateX(-50%); */
+    text-align: center;
 }
 
 #img_avatar--upload{
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius:50%;
 }
@@ -71,7 +73,17 @@ form{
 #upload_img{
     position: absolute;
     bottom: -30px;
-    left: -10px;
+    left: 52%;
+    transform: translateX(-50%);
+}
+
+#error_uploaImg{
+    position: absolute;
+    bottom: -49px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    width: 100%;
 }
 
 .btns{

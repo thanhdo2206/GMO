@@ -23,6 +23,8 @@ let imgReview = getDOM('#img_avatar--upload');
 let imgInfo = getDOM('.info_avatar > img');
 let iconEyes = getDOMs('.eye_pass');
 let iconNoEyes = getDOMs('.eye_noPass');
+let errorUploaImg = getDOM('#error_uploaImg');
+
 
 
 const addUser = function (){
@@ -31,7 +33,7 @@ const addUser = function (){
         renderInfos();
 
 
-    }else console.log("no");
+    }
 }
 
 const resetInput = function (){
@@ -90,6 +92,7 @@ const checkValidate = function() {
     if(!checkBirthDay()) countError++;
     if(!checkPass()) countError++;
     if(!checkConfirm()) countError++;
+    if(!checkImg()) countError++;
                  
      if (countError == 0) return true;
      else return false;
@@ -261,36 +264,50 @@ const checkConfirm = function(){
 
 //hiển thị ảnh upload
 const uploadImg = function(){
+    
+    //đối tượng FileList
     let fileSelect = fileInput.files;
-    console.log(fileSelect);
-
-    let filePath =  fileInput.value;
-    console.log(filePath);
-
+   
+    
+    //tập tin đã được đăng tải
     let fileToLoad  = fileSelect[0];
+
+    let filePath =  fileInput.value;    
 
     let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;//các tập tin cho phép
     
     if(!allowedExtensions.exec(filePath)){
-        alert('Vui lòng upload các file có định dạng: .jpeg/.jpg/.png/.gif only.');
+        
+        errorUploaImg.innerText = "Vui lòng upload các file có định dạng: .jpeg/.jpg/.png/.gif";
         fileInput.value = '';
-        return false;
+        
     }else if(fileSelect && fileToLoad){
         
+        errorUploaImg.innerText = " ";
+
         let fileReader = new FileReader();
         fileReader.onload = function(fileLoadEvent) {
-            console.log(fileLoadEvent);
+            
             let srcData = fileLoadEvent.target.result;
             imgReview.src = srcData;
         }
+
+        // Đọc thông tin tập tin đã được đăng tải
         fileReader.readAsDataURL(fileToLoad);
     }
-
-    
 }
 
 fileInput.onchange = uploadImg;
 
+//check upload img
+const checkImg = function(){
+    if(fileInput.value == ''){
+        errorUploaImg.innerText = "Vui lòng chọn file ảnh đại diện";
+        return false;
+    } 
+    
+    return true;
+}
 
 //lấy thông tin từ ô input
 const getInfos =  function(){
