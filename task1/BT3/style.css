@@ -1,0 +1,94 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container_content{
+    display: flex;
+    justify-content:space-around;
+    padding: 20px 0;
+}
+
+.container{
+    width:40%;
+    border: 1px solid #000;
+    
+}
+
+.content_mess{
+    height: 50vh;
+    display:block;
+    width: 100%;
+    border-bottom: solid 1px #000;
+    overflow: auto;
+    padding: 10px;
+}
+
+
+.mess_receive{
+    border-radius: 20px;
+    background-color: #cac7c7;
+    display: inline-block;
+    padding: 5px 10px;
+    overflow-wrap: break-word;
+    max-width: 50%;
+    margin-bottom: 4px;
+
+}
+
+.mess_send{
+    overflow-wrap: break-word;
+    max-width: 50%;
+    border-radius: 20px;
+    background-color: rgb(72, 72, 243);
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.mess_send-container{
+    text-align: right;
+}
+
+.action_mess-container{
+    padding: 10px;
+}
+
+.action_mess{
+    padding: 10px 0px;
+    display: flex;
+}
+
+.text_mess{
+    padding: 5px 10px;
+}
+
+.btn_send{
+    /* margin-left: auto; */
+    padding:20px;
+    margin-left: 20px;
+}
+
+.action_mess-container > span{
+    border: 1px solid #000;
+    padding: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+
+}
+
+.action_mess-container > span:hover{
+    background-color: #ccc;
+}
+
+.boldA.active,
+.italicizedA.active,
+.boldB.active,
+.italicizedB.active{
+    background-color: #ccc;
+}
+
+
+
