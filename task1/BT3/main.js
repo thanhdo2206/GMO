@@ -65,8 +65,8 @@ btnA.onclick = sendA;
 
 const sendB = function () {
   send(userB, userA, inputB.value);
-  renderMessReceive(userA, contentMessA);
-  renderMessSend(userB, contentMessB);
+  renderMessReceive(userA, contentMessA,inputB);
+  renderMessSend(userB, contentMessB,inputB);
   inputB.value = "";
 };
 
