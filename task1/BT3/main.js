@@ -19,62 +19,12 @@ let btnBoldA = getDOM(".boldA");
 let btnItalicA = getDOM(".italicizedA");
 let btnBoldB = getDOM(".boldB");
 let btnItalicB = getDOM(".italicizedB");
+let btnResetA = getDOM(".btn_resetA");
+let btnResetB = getDOM(".btn_resetB");
 
-
-const renderMessReceive = function (userReceive, domContentMess,domInput) {
- 
-  let messReceiveTagSpan = document.createElement("span");
-  let messReceiveTagP = document.createElement("p");
-
-  messReceiveTagSpan.innerText = userReceive.messReceive;
-  messReceiveTagSpan.style.cssText = domInput.style.cssText;//gán css style chữ của input cho tin nhắn hiển thị
-  messReceiveTagSpan.classList.add("mess_receive");
-
-  messReceiveTagP.appendChild(messReceiveTagSpan);
-  domContentMess.appendChild(messReceiveTagP);
-};
-
-const renderMessSend = function (userSend, domContentMess,domInput) {
-  let messSendTagSpan = document.createElement("span");
-  let messSendTagP = document.createElement("p");
-
-  messSendTagP.classList.add("mess_send-container");
-
-  messSendTagSpan.innerText = userSend.messSend;
-  messSendTagSpan.style.cssText = domInput.style.cssText;
-  messSendTagSpan.classList.add("mess_send");
-
-  messSendTagP.appendChild(messSendTagSpan);
-  domContentMess.appendChild(messSendTagP);
-};
-
-const send = function (userSend, userReceive, messSend) {
-  userSend.writeMess(messSend);
-  userSend.sendMess(userReceive);
-};
-
-const sendA = function () {
-  send(userA, userB, inputA.value);
-  renderMessReceive(userB, contentMessB,inputA);
-  renderMessSend(userA, contentMessA,inputA);
- 
-  inputA.value = "";
-};
-
-btnA.onclick = sendA;
-
-const sendB = function () {
-  send(userB, userA, inputB.value);
-  renderMessReceive(userA, contentMessA,inputB);
-  renderMessSend(userB, contentMessB,inputB);
-  inputB.value = "";
-};
-
-btnB.onclick = sendB;
 
 //in đậm
 const boldText = function (domTextMess) {
-  
   domTextMess.style.fontWeight = "bold";
 };
 
@@ -114,3 +64,70 @@ btnItalicB.addEventListener("click", (e) => {
   if (e.target.classList.contains("active"))  ItalicText(inputB);  
   else ItalicNoText(inputB);
 });
+
+//reset 
+const resetText = function (domInput) {
+  domInput.value = '';
+}
+
+btnResetA.addEventListener("click", ()=>{ 
+  resetText(inputA);
+})
+
+btnResetB.addEventListener("click", ()=>{ 
+  resetText(inputB);
+})
+
+
+const renderMessReceive = function (userReceive, domContentMess,domInput) {
+ 
+  let messReceiveTagSpan = document.createElement("span");
+  let messReceiveTagP = document.createElement("p");
+
+  messReceiveTagSpan.innerText = userReceive.messReceive;
+  messReceiveTagSpan.style.cssText = domInput.style.cssText;//gán css style chữ của input cho tin nhắn hiển thị
+  messReceiveTagSpan.classList.add("mess_receive");
+
+  messReceiveTagP.appendChild(messReceiveTagSpan);
+  domContentMess.appendChild(messReceiveTagP);
+};
+
+const renderMessSend = function (userSend, domContentMess,domInput) {
+  let messSendTagSpan = document.createElement("span");
+  let messSendTagP = document.createElement("p");
+
+  messSendTagP.classList.add("mess_send-container");
+
+  messSendTagSpan.innerText = userSend.messSend;
+  messSendTagSpan.style.cssText = domInput.style.cssText;
+  messSendTagSpan.classList.add("mess_send");
+
+  messSendTagP.appendChild(messSendTagSpan);
+  domContentMess.appendChild(messSendTagP);
+};
+
+const send = function (userSend, userReceive, messContent) {
+  userSend.writeMess(messContent);
+  userSend.sendMess(userReceive);
+};
+
+
+const sendA = function () {
+  send(userA, userB, inputA.value);
+  renderMessReceive(userB, contentMessB,inputA);
+  renderMessSend(userA, contentMessA,inputA);
+  console.log(inputA.style);
+  inputA.value = "";
+};
+
+btnA.onclick = sendA;
+
+const sendB = function () {
+  send(userB, userA, inputB.value);
+  renderMessReceive(userA, contentMessA,inputB);
+  renderMessSend(userB, contentMessB,inputB);
+  inputB.value = "";
+};
+
+btnB.onclick = sendB;
+
