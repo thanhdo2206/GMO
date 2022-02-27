@@ -131,3 +131,4 @@ const sendB = function () {
 
 btnB.onclick = sendB;
 
+

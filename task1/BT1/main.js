@@ -166,18 +166,18 @@ const checkEmail = function(){
 }
 
 const checkPhone = function(){
-    let phoneText = phone.value;
+    let phoneText = phone.value.replace(/-/g,"");
     let errorPhone = getDOM('.error_phone');
 
     //kiểm tra định dạng phone
-    const re = /^0/;
+    const re = /^0[0-9]+$/;
     let checkRegex = re.test(phoneText);
 
     if(checkEmpty(phoneText,phone)) {
         if (checkRegex) {
             errorPhone.innerText = "";
         } else {
-            errorPhone.innerText = "Nhập số 0 đầu tiên trong số điện thoại của bạn";      
+            errorPhone.innerText = "Tất cả đều là số và bắt đầu bằng số 0";      
         }
 
         return checkRegex;
@@ -217,9 +217,11 @@ const checkBirthDay = function(){
 const checkPass = function(){
     let passText = password.value;
     let errorPass = getDOM('.error_pass');
-
+    console.log(passText.length);
   
-    const re =/^[A-Z|a-z](?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,30}$/;
+    const re =/^[A-Z|a-z](?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*.-]).{8,30}$/;
+    
+
     let checkRegex = re.test(passText);
 
     if(checkEmpty(passText,password)) {
